@@ -14,3 +14,4 @@
 Route::get('/', 'IndexController@home');
 Route::get('boardgames', 'BoardGameController@list');
 Route::get('boardgames/{name}', 'BoardGameController@boardGame');
+Route::get('contact', 'ContactController@contact');
