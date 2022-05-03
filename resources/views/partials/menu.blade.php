@@ -1,6 +1,6 @@
 <ul>
-    <li>1 Menü</li>
-    <li>2 Menü</li>
-    <li>3 Menü</li>
-    <li>4 Menü</li>
+    <li><a href="{{ route('home') }}">Föoldal</a></li>
+    <li><a href="{{ route('boardgames') }}">Társasjátékok</a></li>
+    <li><a href="{{ route('contact') }}">Kapcsolat</a></li>
 </ul>
+

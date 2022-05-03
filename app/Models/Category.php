@@ -30,7 +30,7 @@ class Category extends Model
 	use SoftDeletes;
     use Translatable;
 
-    public $translatedAttributes = ['name', 'description'];
+    public $translatedAttributes = ['name', 'description', 'seo_name'];
 	protected $table = 'categories';
 
 	public function board_games()

@@ -5,7 +5,11 @@
 @endsection
 
 @section("content")
-    boardgame content {{$name}}
+    <!--boardgame content -->
+
+<p>{{$boardGame}}</p>
+
+
 
 @endsection
 

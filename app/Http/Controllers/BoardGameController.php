@@ -3,31 +3,48 @@
 namespace App\Http\Controllers;
 
 use App\Models\BoardGame;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class BoardGameController extends Controller
 {
+    public $locale;
 
-    public function list()
+    public function __construct()
     {
-      /*  $boardgame = new BoardGame();
-        $fillBoardgame = ["publisher"=>"Gémklub","game_time"=>45,"min_age"=>10,"min_player"=>1,"max_player"=>6];
-        $boardgame->fill($fillBoardgame);
+        $this->locale=App::getLocale();
+    }
 
-        $boardgame->save();
-*/
+    public function list(Request $request)
+    {
+        $boardgames = BoardGame::take(3)->get();
+        $categories = Category::all();
 
-
-        $boardgames = BoardGame::findOrFail(5);
-        $boardgames -> forceDelete();
-
-        dd($boardgames);
-
-        return view('pages/list', ["boardgames"=>$boardgames]);
+        return view('pages/list', [
+            "boardgames" => $boardgames,
+            "categories" => $categories
+        ]);
     }
 
     public function boardGame($name)
     {
-        return view('pages/boardgame',["name"=>$name]);
+        $boardGame = BoardGame::with('categories')->whereTranslation('seo_name', $name, $this->locale)->firstOrFail();
+
+        return view('pages/boardgame',["boardGame"=>$boardGame]);
+    }
+
+    public function boardGameCategory($category)
+    {
+        $boardGameCategory = Category::with('board_games')->whereTranslation('seo_name', $category, $this->locale)->firstOrFail();
+
+        return view('pages/boardgamecategory',["boardGameCategory"=>$boardGameCategory]);
+    }
+
+    public function search(Request $request){
+        $search = $request->get("search");
+        $boardgames = BoardGame::with('categories','sales')->whereTranslationLike('name', '%'.$search.'%', $this->locale)->paginate(1);
+
+        return view('pages/search',["boardGames"=>$boardgames]);
     }
 }
