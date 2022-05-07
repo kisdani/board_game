@@ -19,13 +19,9 @@
             <div class="container">
 
                 <div class="row">
-
                     <div class="col-sm-12 menu">@include("partials/menu")</div>
+                </div>
 
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">@include('partials/search')</div>
-                </div>
                 <div class="row">
 
                     <div class="col-sm-3 aside">@yield("aside")</div>

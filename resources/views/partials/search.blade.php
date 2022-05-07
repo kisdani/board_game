@@ -1,5 +1,4 @@
-<form action="{{ route('search') }}">
-    <label for="search">Search:</label><br>
-    <input type="text" id="search" name="search" placeholder="Search..."><br>
-    <input type="submit" value="Submit">
+<form class="form-inline my-2 my-lg-0" action="{{ route('search') }}">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 </form>
