@@ -15,7 +15,7 @@ class BoardGamesTableSeeder extends Seeder
      */
     public function run()
     {
-        ini_set('memory_limit', '600M');
+        ini_set('memory_limit', '2G');
 
         // Fake adatok feltöltése
         $faker = Faker\Factory::create();

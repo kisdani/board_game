@@ -1,4 +1,57 @@
+html, body {
+    height: 100%;
+}
+
 body {
     background: $light-blue;
     color: $blue !important;
+}
+
+.row.content {height: 1600px}
+
+.dark-bg{
+    background: $menu-bar;
+}
+
+.content-bg {
+    overflow: scroll;
+}
+
+.menu ul{
+    margin-bottom: 0 !important;
+}
+
+.sidenav {
+    background-color: $light-blue;
+    height: 100% !important;
+}
+
+.list-group{
+    margin-top: 20%;
+}
+
+.card-img-top{
+    margin-top: 10px !important;
+}
+
+.content {
+    background: $body-bg;
+    border-right: 1px solid $menu-bar;
+    border-left: 1px solid $menu-bar;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+    background-color: $footer-bg;
+    color: $footer-color;
+    padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+    .sidenav {
+        height: auto;
+        padding: 15px;
+    }
+    .row.content {height: auto;}
 }

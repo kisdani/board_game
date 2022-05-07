@@ -1,7 +1,8 @@
 @extends("main")
 
 @section("aside")
-    LOL
+
+
 @endsection
 
 @section("content")

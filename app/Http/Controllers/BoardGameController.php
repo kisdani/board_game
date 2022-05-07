@@ -18,7 +18,7 @@ class BoardGameController extends Controller
 
     public function list(Request $request)
     {
-        $boardgames = BoardGame::take(3)->get();
+        $boardgames = BoardGame::take(6)->get();
         $categories = Category::all();
 
         return view('pages/list', [
