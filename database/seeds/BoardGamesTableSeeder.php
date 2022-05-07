@@ -15,6 +15,8 @@ class BoardGamesTableSeeder extends Seeder
      */
     public function run()
     {
+        ini_set('memory_limit', '600M');
+
         // Fake adatok feltöltése
         $faker = Faker\Factory::create();
         $locales = ['en' => 'en_EN','hu' => 'hu_HU'];
@@ -33,13 +35,13 @@ class BoardGamesTableSeeder extends Seeder
             foreach ($locales as $key => $locale){
                 $boardGameTranslation = new BoardGameTranslation();
                 $fakerLocale = Faker\Factory::create($locale);
-                $name = $fakerLocale->words(4, true);
+                $name = $fakerLocale->words(mt_rand(1,5), true);
 
                 $boardGameTranslation->board_game_id = $boardGame->id;
                 $boardGameTranslation->fill([
                     'locale' => $key,
                     'name' => $name,
-                    'description' => $fakerLocale->text(),
+                    'description' => $fakerLocale->realText($faker->numberBetween(10, 200)),
                     'seo_name' => Str::slug($name),
                 ]);
                 $boardGameTranslation->save();

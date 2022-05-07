@@ -12,8 +12,11 @@
 */
 
 Route::get('/', 'IndexController@home')->name('home');
-Route::get('boardgames', 'BoardGameController@list')->name('boardgames');
-Route::get('boardgames/game/{name}', 'BoardGameController@boardGame')->name('boardgame');
-Route::get('contact', 'ContactController@contact')->name('contact');
-Route::get('boardgames/category/{category}', 'BoardGameController@boardGameCategory')->name('category');
 Route::get('boardgames/search', 'BoardGameController@search')->name('search');
+
+Route::group(['middleware' => ['log']], function() {
+    Route::get('boardgames', 'BoardGameController@list')->name('boardgames');
+    Route::get('boardgames/game/{name}', 'BoardGameController@boardGame')->name('boardgame');
+    Route::get('contact', 'ContactController@contact')->name('contact');
+    Route::get('boardgames/category/{category}', 'BoardGameController@boardGameCategory')->name('category');
+});
