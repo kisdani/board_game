@@ -29,6 +29,7 @@ class BoardGamesTableSeeder extends Seeder
                 'min_age' => $faker->numberBetween(3, 18),
                 'min_player' => $faker->numberBetween(1, 4),
                 'max_player' => $faker->numberBetween(5, 12),
+                'image' => $faker->imageUrl(640, 480, 'animals', true),
             ]);
             $boardGame->save();
 
