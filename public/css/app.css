@@ -43,6 +43,7 @@ body {
   background: #f8fafc;
   border-right: 1px solid #343a40;
   border-left: 1px solid #343a40;
+  overflow: scroll;
 }
 
 /* Set black background color, white text and some padding */
